@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useDebounce from "./hooks/useDebounce";
+import useThrottle from "./hooks/useThrottle";
 
 function App() {
   function searchApi(search) {
@@ -59,7 +60,10 @@ function App() {
             </div>
           ))
         ) : (
-          <iframe style={{border: 'none', width: '50vw', height: '70vh'}} src='https://embed.lottiefiles.com/animation/109247'></iframe>
+          <iframe
+            style={{ border: "none", width: "50vw", height: "70vh" }}
+            src='https://embed.lottiefiles.com/animation/109247'
+          ></iframe>
         )}
       </div>
     </div>

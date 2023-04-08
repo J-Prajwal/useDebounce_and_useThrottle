@@ -3,9 +3,6 @@ import { useEffect, useRef, useState } from "react";
 function useThrottle(value, interval) {
   const [throttledValue, setThrottledValue] = useState(value);
   const lastExecuted = useRef(Date.now());
-
-  console.log('throttling function running');
-  console.log(throttledValue)
   useEffect(() => {
     if (Date.now() >= lastExecuted.current + interval) {
       lastExecuted.current = Date.now();
