@@ -5,10 +5,7 @@ function App() {
   function searchApi(search) {
     const apiKey = "b3d7513e669169551c86a221bb67c912";
     return fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`,
-      {
-        method: "GET",
-      }
+      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`
     )
       .then((r) => r.json())
       .then((r) => r.results)
@@ -51,15 +48,19 @@ function App() {
           gap: "2rem",
         }}
       >
-        {results.map((result) => (
-          <div key={result.id}>
-            <h4>{result.title}</h4>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
-              style={{ width: "100%" }}
-            />
-          </div>
-        ))}
+        {results.length > 0 ? (
+          results.map((result) => (
+            <div key={result.id}>
+              <h4>{result.title}</h4>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                style={{ width: "100%" }}
+              />
+            </div>
+          ))
+        ) : (
+          <iframe style={{border: 'none', width: '50vw', height: '70vh'}} src='https://embed.lottiefiles.com/animation/109247'></iframe>
+        )}
       </div>
     </div>
   );
